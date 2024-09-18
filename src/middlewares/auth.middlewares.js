@@ -5,7 +5,7 @@ module.exports.Auth = async (req, res, next) => {
   const token = req.headers["authorization"];
 
   if (!token) {
-    return res.status(401).send({
+    return res.status(200).send({
       error: true,
       result: null,
       message: "UnAuthorized",
@@ -16,7 +16,7 @@ module.exports.Auth = async (req, res, next) => {
   if (splitToken && (splitToken === "null" || splitToken === undefined)) {
     console.log({ splitToken })
 
-    return res.status(401).send({
+    return res.status(200).send({
       error: true,
       result: null,
       message: "UnAuthorized",
